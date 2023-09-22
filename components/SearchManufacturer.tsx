@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Combobox, Transition } from '@headlessui/react'
 import { manufacturers
  } from '@/constants'
-const SearchManufacturer = ({manufacturer, setManufacturer}: SearchManufacturerProps ) => {
+const SearchManufacturer = ({selected, setSelected}: SearchManufacturerProps ) => {
   const [query, setQuery] = useState('')
 
   const filteredManufacturers = query === "" ? manufacturers : manufacturers.filter((item) => (
@@ -15,7 +15,7 @@ const SearchManufacturer = ({manufacturer, setManufacturer}: SearchManufacturerP
   return (
     <div className='search-manufacturer'>
         <Combobox 
-          value={manufacturer} onChange={setManufacturer}
+          value={selected} onChange={setSelected}
         >
             <div className='relative w-full'>
                 <Combobox.Button className="absolute top-[14px]">
